@@ -13,7 +13,7 @@
 
     <div class="container mx-auto px-4 py-16">
     <div class="characters">
-        <h2 class="uppercase tracking-wider text-white-500 text-lg font-semibold">Characters</h2>
+        <h3 class="uppercase tracking-wider text-white-500 text-lg font-semibold">Marvel Characters</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($characters as $character)
                 <div class="character mt-8">
