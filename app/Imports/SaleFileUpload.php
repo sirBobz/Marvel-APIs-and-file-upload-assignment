@@ -40,14 +40,14 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
     public function rules(): array
     {
         return [
-            '*.InvoiceNo' => 'required|string',
-            '*.StockCode' => 'required|string',
-            '*.Description' => 'required|string',
-            '*.Quantity' => 'required|string',
-            '*.InvoiceDate' => 'required|string',
-            '*.UnitPrice' => 'required|string',
-            '*.CustomerID' => 'required|string',
-            '*.Country' => 'required|string',
+            //'*.InvoiceNo' => 'required|string',
+            // '*.StockCode' => 'required|string',
+            // '*.Description' => 'required|string',
+            // '*.Quantity' => 'required|string',
+            // '*.InvoiceDate' => 'required|string',
+            // '*.UnitPrice' => 'required|string',
+            // '*.CustomerID' => 'required|string',
+            // '*.Country' => 'required|string',
         ];
     }
 
