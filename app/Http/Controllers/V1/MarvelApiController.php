@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\ViewModels\CharactersViewModel;
-use App\ViewModels\CharacterViewModel;
 use Illuminate\Support\Facades\Cache;
 
 class MarvelApiController extends Controller
@@ -85,22 +84,6 @@ class MarvelApiController extends Controller
     public function show($id)
     {
 
-        $character = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id , [
-            'ts' => $this->timestamp,
-            'apikey' => $this->publicKey,
-            'hash' => $this->hash,
-        ])->json();
-
-        $relatedComics = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id.'/comics' , [
-            'ts' => $this->timestamp,
-            'apikey' => $this->publicKey,
-            'hash' => $this->hash,
-        ])->json();
-
-        $viewModel = new CharacterViewModel(
-            $character['data']['results'][0],
-            $relatedComics['data']['results'],
-        );
     }
 
     /**
