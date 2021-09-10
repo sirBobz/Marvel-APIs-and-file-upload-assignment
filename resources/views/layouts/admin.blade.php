@@ -30,11 +30,11 @@
           </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item {{ Route::is('marvelApi') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('marvelApi') }}">Marvel API</a>
+          <li class="nav-item {{ Route::is('apis.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('apis.index') }}">Marvel API</a>
           </li>
-          <li class="nav-item {{ Route::is('fileUpload') ? 'active' : '' }}">
-            <a class="nav-link" href="{{ route('fileUpload') }}">File Upload</a>
+          <li class="nav-item {{ Route::is('files.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('files.index') }}">File Upload</a>
           </li>
         </ul>
       </div>

@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\V1\MarvelApiController;
+use App\Http\Controllers\V1\FileUploadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('files', FileUploadController::class);
+Route::resource('apis', MarvelApiController::class);
 
 
