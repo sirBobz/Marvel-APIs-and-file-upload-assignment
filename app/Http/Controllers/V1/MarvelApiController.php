@@ -7,9 +7,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\ViewModels\CharactersViewModel;
 use App\ViewModels\CharacterViewModel;
+use Illuminate\Support\Facades\Cache;
 
 class MarvelApiController extends Controller
 {
+    public $timestamp;
+    public $privateKey;
+    public $publicKey;
+    public $hash;
+
+    public function __construct()
+    {
+        $this->timestamp = time();
+        $this->privateKey = config('services.marvelapi.private_key');
+        $this->publicKey = config('services.marvelapi.public_key');
+        $this->hash = md5($this->timestamp . $this->privateKey . $this->publicKey);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,23 +31,16 @@ class MarvelApiController extends Controller
      */
     public function index($page = 1)
     {
-
-        $timestamp = time();
-        $privateKey = config('services.marvelapi.private_key');
-        $publicKey = config('services.marvelapi.public_key');
-
-        $hash = md5($timestamp.$privateKey.$publicKey);
-
-        $offset = ($page - 1) * 20;
+        $offset = ($page - 1) * 10;
 
         $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
-            'orderBy' => 'name',
-            'limit' => '20',
-            'offset' => $offset,
-            'ts' => $timestamp,
-            'apikey' => $publicKey,
-            'hash' => $hash,
-        ])->json();
+                'orderBy' => 'name',
+                'limit' => '20',
+                'offset' => $offset,
+                'ts' => $this->timestamp,
+                'apikey' => $this->publicKey,
+                'hash' => $this->hash,
+            ])->json();
 
         $totalPages = ceil($characters['data']['total']/20);
 
@@ -77,22 +84,17 @@ class MarvelApiController extends Controller
      */
     public function show($id)
     {
-        $timestamp = time();
-        $privateKey = config('services.marvelapi.private_key');
-        $publicKey = config('services.marvelapi.public_key');
-
-        $hash = md5($timestamp.$privateKey.$publicKey);
 
         $character = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id , [
-            'ts' => $timestamp,
-            'apikey' => $publicKey,
-            'hash' => $hash,
+            'ts' => $this->timestamp,
+            'apikey' => $this->publicKey,
+            'hash' => $this->hash,
         ])->json();
 
         $relatedComics = Http::get('https://gateway.marvel.com/v1/public/characters/'.$id.'/comics' , [
-            'ts' => $timestamp,
-            'apikey' => $publicKey,
-            'hash' => $hash,
+            'ts' => $this->timestamp,
+            'apikey' => $this->publicKey,
+            'hash' => $this->hash,
         ])->json();
 
         $viewModel = new CharacterViewModel(
