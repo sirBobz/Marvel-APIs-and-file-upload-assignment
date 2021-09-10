@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\V1;
 
 use App\Http\Controllers\Controller;
+use App\Imports\SaleFileUpload;
 use Illuminate\Http\Request;
+use Exception;
+use App\Http\Requests\V1\FileUpload;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FileUploadController extends Controller
 {
@@ -33,9 +37,19 @@ class FileUploadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileUpload $request)
     {
-        //
+        try {
+            (new SaleFileUpload)->queue(request()->file('import_file'));
+
+            Alert::success('Success', 'Operation successful');
+
+        } catch (Exception $e) {
+
+            Alert::error('Error', $e->getMessage());
+        }
+
+        return redirect()->back();
     }
 
     /**
