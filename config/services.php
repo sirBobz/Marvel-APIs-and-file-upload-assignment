@@ -13,6 +13,10 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'marvelapi' => [
+        'public_key' => env('MARVEL_API_PUBLIC_KEY'),
+        'private_key' => env('MARVEL_API_PRIVATE_KEY'),
+    ],
 
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
