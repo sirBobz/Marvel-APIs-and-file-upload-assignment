@@ -54,11 +54,11 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
 
     public function batchSize(): int
     {
-        return 300;
+        return 1000;
     }
 
     public function chunkSize(): int
     {
-        return 300;
+        return 1000;
     }
 }

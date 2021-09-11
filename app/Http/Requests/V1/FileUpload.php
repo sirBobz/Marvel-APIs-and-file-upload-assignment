@@ -24,7 +24,7 @@ class FileUpload extends FormRequest
     public function rules()
     {
         return [
-            'import_file' => 'required|file|max:100000',
+            'import_file' => 'required|file|mimes:csv,txt|max:100000',
         ];
     }
 }
