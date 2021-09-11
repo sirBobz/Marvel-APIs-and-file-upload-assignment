@@ -4,10 +4,10 @@ namespace App\Http\Controllers\V1;
 
 use App\DataTables\SalesDataTable;
 use App\Http\Controllers\Controller;
-use App\Imports\SaleFileUpload;
 use Illuminate\Http\Request;
 use Exception;
 use App\Http\Requests\V1\FileUpload;
+use App\Imports\SaleFileUpload;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class FileUploadController extends Controller

@@ -60,6 +60,6 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
     // Check the best config for your machine
     public function chunkSize(): int
     {
-        return 1000;
+        return 10000;
     }
 }
