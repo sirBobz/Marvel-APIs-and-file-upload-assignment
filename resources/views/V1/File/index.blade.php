@@ -44,31 +44,7 @@
                     </div>
                     <div class="modal-body">
                         <br>
-
                             @livewire('import')
-
-                        {{-- <form role="form" method="POST" action="{{ route('files.store') }}"
-                            enctype="multipart/form-data">
-                            {{ csrf_field() }}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupFileAddon01"></span>
-                                        </div>
-                                        <div class="custom-file">
-                                            <input type="file" required="required" title="Please upload a excel file"
-                                                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                                                name="import_file" class="custom-file-input" id="import_file">
-                                            <label class="custom-file-label" for="import_file">Upload file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <input type="submit" class="btn btn-primary btn-sm px-4" value="Submit">
-                                </div>
-                            </div>
-                        </form> --}}
                         <br><br>
                     </div>
 
