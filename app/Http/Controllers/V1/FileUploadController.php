@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\V1;
 
+use App\DataTables\SalesDataTable;
 use App\Http\Controllers\Controller;
 use App\Imports\SaleFileUpload;
 use Illuminate\Http\Request;
@@ -16,9 +17,10 @@ class FileUploadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(SalesDataTable $dataTable, Request $request)
     {
-        return view('V1.File.index');
+        return $dataTable->render('V1.File.index');
     }
 
     /**
