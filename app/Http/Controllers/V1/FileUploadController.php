@@ -42,7 +42,7 @@ class FileUploadController extends Controller
     public function store(FileUpload $request)
     {
         try {
-            (new SaleFileUpload)->queue(request()->file('import_file'));
+            (new SaleFileUpload)->queue($request->file('import_file'));
 
             Alert::success('Success', 'Operation successful');
 
