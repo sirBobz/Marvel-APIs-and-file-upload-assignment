@@ -51,12 +51,13 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
             // '*.Country' => 'required|string',
         ];
     }
-
+    // Check the best config for your machine
     public function batchSize(): int
     {
         return 1000;
     }
 
+    // Check the best config for your machine
     public function chunkSize(): int
     {
         return 1000;
