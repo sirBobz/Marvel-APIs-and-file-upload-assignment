@@ -32,7 +32,10 @@ class MarvelApiController extends Controller
     {
         $offset = ($page - 1) * 10;
 
-        $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
+        if (Cache::has('_characters_all_'. $offset)) {
+            $characters = Cache::get('_characters_all_'. $offset);
+        }else{
+            $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
                 'orderBy' => 'name',
                 'limit' => '20',
                 'offset' => $offset,
@@ -40,6 +43,9 @@ class MarvelApiController extends Controller
                 'apikey' => $this->publicKey,
                 'hash' => $this->hash,
             ])->json();
+
+            Cache::put('_characters_all_'. $offset, $characters, 30); // 30 minutes
+        }
 
         $totalPages = ceil($characters['data']['total']/20);
 
