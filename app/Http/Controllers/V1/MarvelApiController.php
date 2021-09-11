@@ -45,7 +45,7 @@ class MarvelApiController extends Controller
                 'hash' => $this->hash,
             ])->json();
 
-            Cache::put($cache_name, $characters, 30); // 30 minutes
+            Cache::put($cache_name, $characters, now()->addMinutes(30)); // 30 minutes
         }
 
         $totalPages = ceil($characters['data']['total'] / 20);
