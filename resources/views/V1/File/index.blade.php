@@ -4,6 +4,7 @@
 <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/select/1.3.0/css/select.dataTables.min.css" rel="stylesheet" />
+@livewireStyles
 @endsection
 
 @section('content')
@@ -43,7 +44,10 @@
                     </div>
                     <div class="modal-body">
                         <br>
-                        <form role="form" method="POST" action="{{ route('files.store') }}"
+
+                            @livewire('import')
+
+                        {{-- <form role="form" method="POST" action="{{ route('files.store') }}"
                             enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <div class="row">
@@ -64,7 +68,7 @@
                                     <input type="submit" class="btn btn-primary btn-sm px-4" value="Submit">
                                 </div>
                             </div>
-                        </form>
+                        </form> --}}
                         <br><br>
                     </div>
 
@@ -98,6 +102,7 @@
 <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
 
 <script src="/js/buttons.server-side.js"></script>
+@livewireScripts
 
 {!! $dataTable->scripts() !!}
 @endsection
