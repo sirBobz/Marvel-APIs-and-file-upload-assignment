@@ -32,9 +32,9 @@ class MarvelApiController extends Controller
     {
         $offset = ($page - 1) * 10;
 
-        if (Cache::has('_characters_all_'. $offset)) {
-            $characters = Cache::get('_characters_all_'. $offset);
-        }else{
+        if (Cache::has('_characters_all_' . $offset)) {
+            $characters = Cache::get('_characters_all_' . $offset);
+        } else {
             $characters = Http::get('https://gateway.marvel.com/v1/public/characters', [
                 'orderBy' => 'name',
                 'limit' => '20',
@@ -44,10 +44,10 @@ class MarvelApiController extends Controller
                 'hash' => $this->hash,
             ])->json();
 
-            Cache::put('_characters_all_'. $offset, $characters, 30); // 30 minutes
+            Cache::put('_characters_all_' . $offset, $characters, 30); // 30 minutes
         }
 
-        $totalPages = ceil($characters['data']['total']/20);
+        $totalPages = ceil($characters['data']['total'] / 20);
 
         abort_if($page > $totalPages, 204);
 
@@ -89,7 +89,6 @@ class MarvelApiController extends Controller
      */
     public function show($id)
     {
-
     }
 
     /**
