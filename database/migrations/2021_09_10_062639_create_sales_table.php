@@ -15,14 +15,14 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
-            $table->string('InvoiceNo');
-            $table->string('StockCode');
-            $table->text('Description');
-            $table->string('Quantity');
-            $table->string('InvoiceDate');
-            $table->string('UnitPrice');
-            $table->string('CustomerID');
-            $table->string('Country');
+            $table->string('InvoiceNo')->nullable();
+            $table->string('StockCode')->nullable();
+            $table->text('Description')->nullable();
+            $table->string('Quantity')->nullable();
+            $table->string('InvoiceDate')->nullable();
+            $table->string('UnitPrice')->nullable();
+            $table->string('CustomerID')->nullable();
+            $table->string('Country')->nullable();
             $table->timestamps();
         });
     }
