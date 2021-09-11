@@ -23,7 +23,6 @@ Route::get('/', function () {
 Route::resource('files', FileUploadController::class);
 
 Route::get('/apis/page/{page?}', [MarvelApiController::class, 'index']);
-Route::get('/apis/{character}', [MarvelApiController::class, 'show']);
 Route::resource('apis', MarvelApiController::class);
 
 
