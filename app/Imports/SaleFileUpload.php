@@ -51,12 +51,17 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
             // '*.Country' => 'required|string',
         ];
     }
+
+    // This batch size will determine how many models will be inserted into the database in one time.
+    // This will drastically reduce the import duration.
     // Check the best config for your machine
+
     public function batchSize(): int
     {
         return 5000;
     }
 
+    //This will read the spreadsheet in chunks and keep the memory usage under control.
     // Check the best config for your machine
     public function chunkSize(): int
     {
