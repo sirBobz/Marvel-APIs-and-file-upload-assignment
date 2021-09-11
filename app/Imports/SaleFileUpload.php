@@ -18,22 +18,22 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
 {
     use Importable;
     /**
-    * @param array $row
-    *
-    * @return \Illuminate\Database\Eloquent\Model|null
-    */
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
 
         return new Sale([
-            'InvoiceNo'  => $row['InvoiceNo'],
-            'StockCode'        => $row['StockCode'],
+            'InvoiceNo'   => $row['InvoiceNo'],
+            'StockCode'   => $row['StockCode'],
             'Description' => $row['Description'],
-            'Quantity'        => $row['Quantity'],
+            'Quantity'    => $row['Quantity'],
             'InvoiceDate' => $row['InvoiceDate'],
             'UnitPrice'   => $row['UnitPrice'],
-            'CustomerID'    => $row['CustomerID'],
-            'Country'  => $row['Country'],
+            'CustomerID'  => $row['CustomerID'],
+            'Country'     => $row['Country'],
         ]);
     }
 
