@@ -5,10 +5,6 @@ namespace App\Http\Controllers\V1;
 use App\DataTables\SalesDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Exception;
-use App\Http\Requests\V1\FileUpload;
-use App\Imports\SaleFileUpload;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class FileUploadController extends Controller
 {
@@ -39,19 +35,9 @@ class FileUploadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(FileUpload $request)
+    public function store()
     {
-        try {
-            (new SaleFileUpload)->queue($request->file('import_file'));
 
-            Alert::success('Success', 'Operation successful');
-
-        } catch (Exception $e) {
-
-            Alert::error('Error', $e->getMessage());
-        }
-
-        return redirect()->back();
     }
 
     /**
