@@ -11,7 +11,7 @@ The application also demonstrates how to upload a large Excel file to a database
 2. `cd` into it.
 3. Install Composer Dependencies. `composer install`
 4. Install NPM Dependencies.  `npm install`
-5. Rename or copy `.env.example` file to `.env`
+5. Copy `.env.example` file to `.env`
 6. In order to use the Laravel app, you need to obtain a :key: [***Marvel API key***](https://developer.marvel.com/account).
 7. Set your `MARVEL_API_PUBLIC_KEY` and `MARVEL_API_PRIVATE_KEY` in your `.env` file.  
 7. Generate an app encryption key.  `php artisan key:generate`
