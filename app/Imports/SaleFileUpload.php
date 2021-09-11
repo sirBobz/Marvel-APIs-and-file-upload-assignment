@@ -54,7 +54,7 @@ class SaleFileUpload implements ToModel, WithHeadingRow, WithBatchInserts, WithC
     // Check the best config for your machine
     public function batchSize(): int
     {
-        return 1000;
+        return 5000;
     }
 
     // Check the best config for your machine
