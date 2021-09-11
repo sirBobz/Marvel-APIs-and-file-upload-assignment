@@ -17,3 +17,5 @@ The application also demonstrates how to upload a large Excel file to a database
 7. Generate an app encryption key.  `php artisan key:generate`
 8. `php artisan serve`
 9. Visit `localhost:8000` in your browser.
+10. Set up queue for file upload: I recommend redis queue driver.
+11. Use the `php artisan queue:work` to start a queue worker and process new jobs as they are pushed onto the queue.
