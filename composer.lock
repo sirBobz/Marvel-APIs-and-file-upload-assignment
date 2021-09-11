@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa3d10dfabe6dc7a70ab72032f799380",
+    "content-hash": "a9a5f4c7e66266cb142507e055f49dc8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3671,16 +3671,16 @@
         },
         {
             "name": "realrashid/sweet-alert",
-            "version": "v3.2.3",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/realrashid/sweet-alert.git",
-                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f"
+                "reference": "4923bb91d7144c2ac5dacda0b5e1472fff3d88af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/d4e40b4956e1f040bd709d54410b360023cea67f",
-                "reference": "d4e40b4956e1f040bd709d54410b360023cea67f",
+                "url": "https://api.github.com/repos/realrashid/sweet-alert/zipball/4923bb91d7144c2ac5dacda0b5e1472fff3d88af",
+                "reference": "4923bb91d7144c2ac5dacda0b5e1472fff3d88af",
                 "shasum": ""
             },
             "require": {
@@ -3757,7 +3757,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-26T10:10:01+00:00"
+            "time": "2021-06-14T19:01:35+00:00"
         },
         {
             "name": "sabberworm/php-css-parser",
