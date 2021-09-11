@@ -7,56 +7,79 @@
 @endsection
 
 @section('content')
-    <div class="card">
-        <div class="card-header">
-            <div class="float-right"><a href="{{ url('') }}"> <i class="fa fa-home"> Home</i></a> <i
-                    class="fa fa-angle-right" aria-hidden="true"></i> <i class="fa fa-file"> File upload</i>
-            </div>
-
+<div class="card">
+    <div class="card-header">
+        <div class="float-right"><a href="{{ url('') }}"> <i class="fa fa-home"> Home</i></a> <i
+                class="fa fa-angle-right" aria-hidden="true"></i> <i class="fa fa-file"> File upload</i>
         </div>
 
-        <div class="card-body">
-            @if ($errors->count() > 0)
-                    <div class="alert alert-danger">
-                        <ul class="list-unstyled">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+    </div>
+
+    <div class="card-body">
+        @if ($errors->count() > 0)
+        <div class="alert alert-danger">
+            <ul class="list-unstyled">
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <!-- Trigger the file upload modal with a button -->
+        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#fileUploadModal">Upload
+            file</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="fileUploadModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
                     </div>
-                @endif
-            <form role="form" method="POST" action="{{ route('files.store') }}"
-            enctype="multipart/form-data">
-          {{ csrf_field() }}
-          <div class="row">
-              <div class="col-md-6">
-                  <div class="input-group">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text" id="inputGroupFileAddon01"></span>
-                      </div>
-                      <div class="custom-file">
-                          <input type="file" required="required"
-                                 title="Please upload a CSV file with phone_number amount" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-                                 name="import_file" class="custom-file-input" id="import_file">
-                          <label class="custom-file-label" for="import_file">Upload file</label>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-md-2">
-                  <input type="submit" class="btn btn-primary px-4" value="Submit">
-              </div>
-          </div>
-      </form>
+                    <div class="modal-body">
+                        <br>
+                        <form role="form" method="POST" action="{{ route('files.store') }}"
+                            enctype="multipart/form-data">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupFileAddon01"></span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" required="required"
+                                                title="Please upload a excel file"
+                                                accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                                                name="import_file" class="custom-file-input" id="import_file">
+                                            <label class="custom-file-label" for="import_file">Upload excel file</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="submit" class="btn btn-primary btn-sm px-4" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
 
-      <div class="row">
-        <div class="table-responsive">
-            {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover']) !!}
+                </div>
+
+            </div>
         </div>
-      </div>
+
+
+        <div class="row">
+            <div class="table-responsive">
+                {!! $dataTable->table(['class' => 'table table-bordered table-striped table-hover']) !!}
+            </div>
         </div>
     </div>
+</div>
 
 @endsection
 
